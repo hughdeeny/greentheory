@@ -11,8 +11,9 @@ export default function Footer() {
               Turf. Plants. Precision.
             </p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-cream/70">
-              Turf care, hedging, irrigation and lawn renovations — plus soft
-              landscaping across Adelaide&apos;s eastern and inner suburbs.
+              Adelaide gardener for turf care, hedging, irrigation and lawn
+              renovations — plus soft landscaping across the eastern and inner
+              suburbs.
             </p>
           </div>
 

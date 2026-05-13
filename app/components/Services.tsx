@@ -2,7 +2,7 @@ const services = [
   {
     title: "Turf Care",
     description:
-      "Professional lawn maintenance, fertilising, weed control, and seasonal programs that keep your turf healthy, dense, and looking its best year-round.",
+      "Professional lawn maintenance, fertilising, weed control, and seasonal programs from an experienced Adelaide gardener — keeping your turf healthy, dense, and looking its best year-round.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7" aria-hidden="true">
         <path
@@ -54,7 +54,7 @@ const services = [
   {
     title: "Soft Landscaping",
     description:
-      "Garden beds, planting schemes, mulching, and softscape design that complements your home — selecting plants suited to Adelaide's climate and your lifestyle.",
+      "Garden beds, planting schemes, mulching, and softscape design that complements your Adelaide home — selecting plants suited to local soils, climate, and your lifestyle.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7" aria-hidden="true">
         <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
@@ -78,11 +78,12 @@ export default function Services() {
             Our Services
           </p>
           <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight text-forest sm:text-5xl">
-            Turf. Plants. Precision.
+            Adelaide gardener services
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-stone">
             Turf care, hedging, irrigation and lawn renovations — plus soft
-            landscaping for Adelaide&apos;s eastern and inner suburbs.
+            landscaping — from a trusted Adelaide gardener serving the eastern
+            and inner suburbs.
           </p>
         </div>
 

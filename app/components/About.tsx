@@ -30,8 +30,9 @@ export default function About() {
             </h2>
             <div className="mt-6 space-y-5 text-[17px] leading-relaxed text-stone">
               <p>
-                GreenTheory was built on a simple promise: every outdoor space
-                deserves expert care. Led by director{" "}
+                GreenTheory is your local Adelaide gardener, built on a simple
+                promise: every outdoor space deserves expert care. Led by
+                director{" "}
                 <strong className="font-semibold text-charcoal">Ash Jose</strong>,
                 we bring horticultural knowledge and hands-on craft to homes
                 across Adelaide&apos;s eastern and inner suburbs.

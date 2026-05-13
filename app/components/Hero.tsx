@@ -2,7 +2,10 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section
+      className="relative min-h-screen overflow-hidden"
+      aria-label="GreenTheory Adelaide gardener and turf care services"
+    >
       <Image
         src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1920&q=80"
         alt="Lush green lawn and landscaped garden in Adelaide"
@@ -17,7 +20,7 @@ export default function Hero() {
         <div className="max-w-3xl">
           <p className="animate-fade-up mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-cream backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-sage-light" />
-            Adelaide &middot; Eastern &amp; Inner Suburbs
+            Adelaide Gardener &middot; Eastern &amp; Inner Suburbs
           </p>
 
           <h1 className="animate-fade-up animation-delay-100 font-display text-5xl font-semibold leading-[1.08] tracking-tight text-white sm:text-6xl lg:text-7xl">
@@ -25,9 +28,13 @@ export default function Hero() {
             <span className="text-sage-light">Precision.</span>
           </h1>
 
-          <p className="animate-fade-up animation-delay-200 mt-6 max-w-xl text-lg leading-relaxed text-cream/90 sm:text-xl">
-            Expert turf care, hedging, irrigation and lawn renovations — plus
-            soft landscaping — for homes across Adelaide&apos;s eastern and
+          <p className="animate-fade-up animation-delay-150 mt-4 text-lg font-medium text-sage-light sm:text-xl">
+            Your local Adelaide gardener for expert outdoor care
+          </p>
+
+          <p className="animate-fade-up animation-delay-200 mt-4 max-w-xl text-lg leading-relaxed text-cream/90 sm:text-xl">
+            Professional turf care, hedging, irrigation and lawn renovations —
+            plus soft landscaping — for homes across Adelaide&apos;s eastern and
             inner suburbs.
           </p>
 
