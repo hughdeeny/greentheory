@@ -20,7 +20,7 @@ const cfg = siteConfig.sortscapeEmbed;
           allow="clipboard-write"
         />
       </div>
-      <p class="border-t border-cream-dark/60 bg-cream/40 px-4 py-3 text-center text-xs text-stone">
+      <p class="border-t border-cream-dark/60 bg-white px-4 py-3 text-center text-xs text-stone">
         If the form does not appear,{' '}
         <a
           href={cfg.formUrl}
@@ -29,6 +29,14 @@ const cfg = siteConfig.sortscapeEmbed;
           class="font-semibold text-forest underline-offset-2 hover:underline"
         >
           open the request form in a new tab
+        </a>
+        , call{' '}
+        <a href={`tel:${siteConfig.phone}`} class="font-semibold text-forest underline-offset-2 hover:underline">
+          {siteConfig.phoneDisplay}
+        </a>
+        , or email{' '}
+        <a href={`mailto:${siteConfig.email}`} class="font-semibold text-forest underline-offset-2 hover:underline">
+          {siteConfig.email}
         </a>
         .
       </p>
