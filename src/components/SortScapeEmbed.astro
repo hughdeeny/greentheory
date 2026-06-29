@@ -1,0 +1,55 @@
+---
+import { siteConfig } from '../lib/site';
+
+const cfg = siteConfig.sortscapeEmbed;
+---
+
+{
+  cfg.enabled && (
+    <div class="sortscape-embed w-full min-w-0">
+      <div id={cfg.containerId} class="relative w-full min-w-0 overflow-hidden bg-white">
+        <iframe
+          id="sortscape-iframe"
+          src={cfg.formUrl}
+          title="Submit an enquiry"
+          loading="eager"
+          class="block w-full border-0 align-top"
+          style="height: 720px; min-height: 320px; width: 100%;"
+          scrolling="no"
+          referrerpolicy="no-referrer-when-downgrade"
+          allow="clipboard-write"
+        />
+      </div>
+      <p class="border-t border-cream-dark/60 bg-cream/40 px-4 py-3 text-center text-xs text-stone">
+        If the form does not appear,{' '}
+        <a
+          href={cfg.formUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-semibold text-forest underline-offset-2 hover:underline"
+        >
+          open the request form in a new tab
+        </a>
+        .
+      </p>
+    </div>
+  )
+}
+
+<script define:vars={{ enabled: cfg.enabled }}>
+  if (!enabled) {
+    // no-op when embed disabled
+  } else {
+    const iframe = document.getElementById('sortscape-iframe');
+    const MIN_RESIZE_HEIGHT = 320;
+
+    window.addEventListener('message', (event) => {
+      if (!event.data || event.data.type !== 'sortscape-resize') return;
+      if (!iframe || event.source !== iframe.contentWindow) return;
+      const h = Number(event.data.height);
+      if (Number.isFinite(h) && h >= MIN_RESIZE_HEIGHT) {
+        iframe.style.height = `${h}px`;
+      }
+    });
+  }
+</script>

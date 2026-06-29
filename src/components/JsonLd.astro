@@ -1,0 +1,124 @@
+---
+import { siteConfig, seo, seoSchemaKnowsAbout } from '../lib/site';
+
+const businessNameFull = 'Green Theory Turf & Garden Care';
+
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${siteConfig.url}/#business`,
+  name: businessNameFull,
+  alternateName: siteConfig.name,
+  slogan: siteConfig.tagline,
+  description: seo.description,
+  url: siteConfig.url,
+  image: `${siteConfig.url}${seo.ogImage}`,
+  logo: `${siteConfig.url}${seo.ogImage}`,
+  telephone: `+61${siteConfig.phone.slice(1)}`,
+  email: siteConfig.email,
+  priceRange: '$$',
+  currenciesAccepted: 'AUD',
+  paymentAccepted: 'Cash, Bank Transfer',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Adelaide',
+    addressRegion: 'SA',
+    addressCountry: 'AU',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -34.9285,
+    longitude: 138.6007,
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: `+61${siteConfig.phone.slice(1)}`,
+    contactType: 'customer service',
+    areaServed: {
+      '@type': 'City',
+      name: 'Adelaide',
+      containedInPlace: {
+        '@type': 'AdministrativeArea',
+        name: 'South Australia',
+      },
+    },
+    availableLanguage: ['en-AU', 'English'],
+  },
+  areaServed: siteConfig.areaServed.map((area) => ({
+    '@type': 'City',
+    name: area,
+  })),
+  founder: {
+    '@type': 'Person',
+    name: siteConfig.director,
+    jobTitle: siteConfig.directorTitle,
+  },
+  employee: {
+    '@type': 'Person',
+    name: siteConfig.director,
+    jobTitle: siteConfig.directorTitle,
+  },
+  knowsAbout: [...siteConfig.services, ...seoSchemaKnowsAbout],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Adelaide turf, lawn and garden care services',
+    itemListElement: siteConfig.services.map((service, index) => ({
+      '@type': 'Offer',
+      position: index + 1,
+      itemOffered: {
+        '@type': 'Service',
+        name: service,
+        areaServed: {
+          '@type': 'City',
+          name: 'Adelaide',
+        },
+        provider: {
+          '@id': `${siteConfig.url}/#business`,
+        },
+      },
+    })),
+  },
+  sameAs: [
+    siteConfig.social.googleBusinessProfile,
+    siteConfig.social.instagram,
+    siteConfig.social.facebook,
+  ],
+};
+
+const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteConfig.url}/#website`,
+  url: siteConfig.url,
+  name: businessNameFull,
+  alternateName: siteConfig.name,
+  description: seo.description,
+  inLanguage: 'en-AU',
+  publisher: {
+    '@id': `${siteConfig.url}/#business`,
+  },
+  about: {
+    '@id': `${siteConfig.url}/#business`,
+  },
+};
+
+const webPage = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${siteConfig.url}/#webpage`,
+  url: siteConfig.url,
+  name: seo.title,
+  description: seo.description,
+  isPartOf: {
+    '@id': `${siteConfig.url}/#website`,
+  },
+  about: {
+    '@id': `${siteConfig.url}/#business`,
+  },
+  inLanguage: 'en-AU',
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+<script type="application/ld+json" set:html={JSON.stringify(website)} />
+<script type="application/ld+json" set:html={JSON.stringify(webPage)} />

@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Reservation Wide";
+  src: url("/fonts/reservation/Reservation Wide Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Reservation Wide";
+  src: url("/fonts/reservation/Reservation Wide Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Reservation Wide";
+  src: url("/fonts/reservation/Reservation Wide Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --forest: #1a3d2e;
+  --forest-light: #2d5a45;
+  --sage: #7a9e7e;
+  --sage-light: #a8c4ab;
+  --moss: #4a6741;
+  --cream: #f6f3ed;
+  --cream-dark: #ebe6dc;
+  --sand: #d4c5a9;
+  --charcoal: #1c1c1a;
+  --stone: #5c5c58;
+  --white: #fefefe;
+  --font-reservation: "Reservation Wide", system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-forest: var(--forest);
+  --color-forest-light: var(--forest-light);
+  --color-sage: var(--sage);
+  --color-sage-light: var(--sage-light);
+  --color-moss: var(--moss);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-sand: var(--sand);
+  --color-charcoal: var(--charcoal);
+  --color-stone: var(--stone);
+  --font-display: var(--font-reservation);
+  --font-body: var(--font-reservation);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: var(--font-reservation), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--sage-light);
+  color: var(--forest);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out both;
+}
+
+.animation-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animation-delay-150 {
+  animation-delay: 0.15s;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animation-delay-500 {
+  animation-delay: 0.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-in {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    opacity: 1;
+    transform: none;
+  }
+}

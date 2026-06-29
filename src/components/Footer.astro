@@ -1,0 +1,119 @@
+---
+import Logo from './Logo.astro';
+import { siteConfig } from '../lib/site';
+
+const year = new Date().getFullYear();
+
+const footerLinks = [
+  { href: '/#services', label: 'All Services' },
+  { href: '/areas-we-serve', label: 'Areas we serve' },
+  { href: '/lawn-renovations', label: 'Lawn renovations' },
+  { href: '/about#why-green-theory', label: 'Why Green Theory' },
+  { href: '/about#process', label: 'Process' },
+  { href: '/about', label: 'About Us' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/#contact', label: 'Contact' },
+] as const;
+---
+
+<footer class="border-t border-cream-dark bg-forest text-cream">
+  <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+    <div class="grid gap-12 md:grid-cols-3">
+      <div>
+        <Logo showWordmark size="lg" class="pointer-events-none max-w-[min(100%,320px)]" />
+        <p class="mt-4 font-display text-lg font-black uppercase tracking-[0.12em] text-cream">
+          Turf. Plants. Precision.
+        </p>
+        <p class="mt-3 max-w-sm text-sm leading-relaxed text-cream/70">
+          Professional turf, irrigation and garden programs — eastern and inner Adelaide.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-sage-light">Contact</p>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li>
+            <span class="text-cream/50">Director</span><br />
+            {siteConfig.director}
+          </li>
+          <li>
+            <a href={`tel:${siteConfig.phone}`} class="transition-colors hover:text-sage-light">
+              {siteConfig.phoneDisplay}
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${siteConfig.email}`} class="transition-colors hover:text-sage-light">
+              {siteConfig.email}
+            </a>
+          </li>
+          <li class="pt-1 text-cream/70">Adelaide · Eastern &amp; Inner Suburbs</li>
+        </ul>
+        <p class="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-sage-light">Follow</p>
+        <ul class="mt-3 flex gap-3">
+          <li>
+            <a
+              href={siteConfig.social.googleBusinessProfile}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex text-cream/80 transition-colors hover:text-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage-light"
+              aria-label="Green Theory on Google Maps"
+            >
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href={siteConfig.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex text-cream/80 transition-colors hover:text-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage-light"
+              aria-label="Green Theory on Instagram"
+            >
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <path d="M17.5 6.5h.01" stroke-linecap="round"></path>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href={siteConfig.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex text-cream/80 transition-colors hover:text-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage-light"
+              aria-label="Green Theory on Facebook"
+            >
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-sage-light">Quick Links</p>
+        <ul class="mt-4 space-y-3 text-sm">
+          {
+            footerLinks.map((link) => (
+              <li>
+                <a href={link.href} class="text-cream/85 transition-colors hover:text-cream">
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-cream/10 pt-8 text-xs text-cream/65 sm:flex-row">
+      <p>&copy; {year} {siteConfig.name}. All rights reserved.</p>
+      <p>Adelaide · Eastern &amp; Inner Suburbs</p>
+    </div>
+  </div>
+</footer>

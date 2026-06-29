@@ -1,0 +1,67 @@
+---
+interface Props {
+  showWordmark?: boolean;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  class?: string;
+  contrastShadow?: boolean;
+}
+
+const {
+  showWordmark = true,
+  size = 'md',
+  class: className = '',
+  contrastShadow = false,
+} = Astro.props;
+
+const wordmarkHeightClass = {
+  sm: 'h-8',
+  md: 'h-10',
+  lg: 'h-12 sm:h-14',
+  xl: 'h-12 w-auto sm:h-14 md:h-16 lg:h-[4.25rem] xl:h-20 2xl:h-24',
+};
+
+const hClass = wordmarkHeightClass[size];
+const src = '/brand/new-cropped-logo-2.png';
+---
+
+{
+  !showWordmark ? (
+    <a href="/" class={`group inline-flex items-center ${className}`}>
+      <img
+        src="/logo.png"
+        alt="Green Theory"
+        width={size === 'sm' ? 32 : size === 'md' ? 40 : size === 'lg' ? 52 : 60}
+        height={size === 'sm' ? 32 : size === 'md' ? 40 : size === 'lg' ? 52 : 60}
+        class="rounded-lg transition-transform group-hover:scale-105"
+        fetchpriority="high"
+      />
+    </a>
+  ) : (
+    <a
+      href="/"
+      class={`group inline-flex items-center max-w-[min(100%,min(96vw,720px))] ${className}`}
+    >
+      {contrastShadow ? (
+        <span class="inline-flex items-center rounded-lg bg-forest px-2 py-1.5 ring-1 ring-white/15 sm:rounded-xl sm:px-3 sm:py-2">
+          <img
+            src={src}
+            alt="Green Theory Turf & Garden Care"
+            width={720}
+            height={237}
+            class={`${hClass} w-auto max-w-full object-contain object-left transition-opacity duration-200 group-hover:opacity-90`}
+            fetchpriority="high"
+          />
+        </span>
+      ) : (
+        <img
+          src={src}
+          alt="Green Theory Turf & Garden Care"
+          width={720}
+          height={237}
+          class={`${hClass} w-auto max-w-full object-contain object-left transition-opacity duration-200 group-hover:opacity-90`}
+          fetchpriority="high"
+        />
+      )}
+    </a>
+  )
+}

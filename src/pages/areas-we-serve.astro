@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageShell from '../layouts/PageShell.astro';
+import { siteConfig } from '../lib/site';
+
+const areas = [...siteConfig.areaServed].sort((a, b) => a.localeCompare(b, 'en-AU'));
+---
+
+<BaseLayout
+  title="Areas we serve"
+  description="Green Theory provides turf care, lawn renovations, hedging, irrigation and garden programs across Adelaide's inner and eastern suburbs — including Walkerville, North Adelaide, Prospect, Norwood and Unley."
+  canonical="/areas-we-serve"
+>
+  <PageShell>
+    <main id="main-content" class="bg-cream pb-24 pt-28 md:pt-36 lg:pt-40">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <nav class="text-sm text-stone">
+          <a href="/" class="font-medium text-forest underline-offset-4 hover:underline">Home</a>
+          <span class="mx-2 text-stone/60" aria-hidden="true">/</span>
+          <span class="text-charcoal">Areas we serve</span>
+        </nav>
+
+        <header class="mt-8 max-w-3xl">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-sage">Service area</p>
+          <h1 class="mt-3 font-display text-4xl font-bold uppercase tracking-tight text-forest sm:text-5xl lg:text-6xl">
+            Areas we serve
+          </h1>
+          <p class="mt-5 text-lg leading-relaxed text-stone">
+            {siteConfig.name} works across the suburbs and regions listed below. For a scope on your property,{' '}
+            <a href="/#contact" class="font-semibold text-forest underline-offset-4 hover:underline">
+              request a quote
+            </a>{' '}
+            or call{' '}
+            <a href={`tel:${siteConfig.phone}`} class="font-semibold text-forest underline-offset-4 hover:underline">
+              {siteConfig.phoneDisplay}
+            </a>
+            .
+          </p>
+        </header>
+
+        <section class="mt-14" aria-labelledby="suburbs-heading">
+          <h2 id="suburbs-heading" class="font-display text-xl font-bold uppercase tracking-tight text-forest">
+            Suburbs &amp; regions
+          </h2>
+          <ul class="mt-6 columns-1 gap-x-10 text-[15px] leading-relaxed text-stone sm:columns-2 lg:columns-3">
+            {
+              areas.map((area) => (
+                <li class="mb-2 break-inside-avoid">{area}</li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <nav class="mt-14 flex flex-wrap gap-4 border-t border-cream-dark pt-10 text-sm font-semibold text-forest">
+          <a href="/#services" class="underline-offset-4 hover:underline">All services</a>
+          <span class="text-stone/40" aria-hidden="true">·</span>
+          <a href="/lawn-renovations" class="underline-offset-4 hover:underline">Lawn renovations</a>
+          <span class="text-stone/40" aria-hidden="true">·</span>
+          <a href="/gallery" class="underline-offset-4 hover:underline">Gallery</a>
+        </nav>
+      </div>
+    </main>
+  </PageShell>
+</BaseLayout>

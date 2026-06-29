@@ -1,0 +1,81 @@
+---
+import { siteConfig } from '../lib/site';
+
+const trustPoints = [
+  'Residential, commercial & strata',
+  'Licensed & fully insured',
+  'Clear, detailed proposals',
+  'Long-term programs & communication',
+] as const;
+---
+
+<section
+  id="why-green-theory"
+  class="scroll-mt-36 overflow-hidden bg-cream py-24 md:scroll-mt-40 lg:py-32"
+  aria-labelledby="why-green-theory-heading"
+>
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+      <div class="relative">
+        <div class="relative overflow-hidden rounded-3xl">
+          <img
+            src="/about-garden.png"
+            alt="Manicured hedge and garden bed — professional turf and garden care"
+            width={1024}
+            height={576}
+            class="h-auto w-full"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="absolute -bottom-6 -right-4 rounded-2xl bg-forest px-8 py-6 text-cream shadow-xl sm:-right-8">
+          <p class="font-display text-2xl font-bold uppercase tracking-tight text-cream sm:text-3xl">
+            {siteConfig.director}
+          </p>
+          <p class="mt-2 max-w-[14rem] text-sm leading-snug text-sage-light">
+            {siteConfig.directorTitle}
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h2
+          id="why-green-theory-heading"
+          class="font-display text-3xl font-bold uppercase tracking-tight text-forest sm:text-4xl lg:text-5xl"
+        >
+          Why Green Theory
+        </h2>
+
+        <div class="mt-8 space-y-5 text-[17px] leading-relaxed text-stone">
+          <p>
+            Green Theory exists because we believe lawns and gardens perform best when they're maintained with
+            knowledge and purpose, not just cut and tidied.
+          </p>
+          <p>
+            We don't just mow lawns. We provide professional turf and garden care backed by horticultural
+            knowledge, irrigation expertise and proven maintenance systems.
+          </p>
+          <p>
+            Whether it's a residential garden, strata property or commercial site, our focus is always the
+            same: healthy plants, healthy lawns and a consistently high standard of presentation.
+          </p>
+        </div>
+
+        <ul class="mt-10 grid gap-4 sm:grid-cols-2">
+          {
+            trustPoints.map((item) => (
+              <li class="flex items-center gap-3 text-[15px] font-medium text-charcoal">
+                <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage/20 text-forest">
+                  <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </span>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

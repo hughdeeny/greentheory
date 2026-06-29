@@ -1,0 +1,38 @@
+---
+import { siteConfig } from '../lib/site';
+---
+
+<section
+  id="how-we-work"
+  class="scroll-mt-36 bg-cream py-16 md:scroll-mt-40 md:py-20 lg:py-24"
+  aria-labelledby="how-we-work-heading"
+>
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="relative overflow-hidden rounded-3xl border border-sage/20 bg-white p-8 shadow-sm ring-1 ring-cream-dark/80 md:p-10 lg:grid lg:grid-cols-12 lg:gap-10 lg:p-12">
+      <div class="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-sage/10 blur-3xl" aria-hidden="true"></div>
+      <div class="relative lg:col-span-5">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-sage">How we work</p>
+        <h2
+          id="how-we-work-heading"
+          class="mt-3 font-display text-2xl font-bold uppercase tracking-tight text-forest sm:text-3xl lg:text-4xl lg:leading-tight"
+        >
+          Systems behind every visit
+        </h2>
+      </div>
+      <div class="relative mt-8 space-y-5 text-[15px] leading-relaxed text-stone lg:col-span-7 lg:mt-0 lg:text-base lg:leading-relaxed">
+        <p class="text-pretty">{siteConfig.audienceLine}</p>
+        <p class="text-pretty">
+          From turf care and lawn renovations through hedging, irrigation and soft landscaping, we apply the
+          same standards across Adelaide's eastern and inner suburbs — see our{' '}
+          <a
+            href="/lawn-renovations"
+            class="font-semibold text-forest underline decoration-sage/40 underline-offset-[3px] transition-colors hover:text-forest-light hover:decoration-forest/50"
+          >
+            renovation programs
+          </a>{' '}
+          for how we rebuild tired lawns from the ground up.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

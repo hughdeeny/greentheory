@@ -1,0 +1,62 @@
+---
+import '../styles/global.css';
+import JsonLd from '../components/JsonLd.astro';
+import { seo, siteConfig } from '../lib/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = seo.title,
+  description = seo.description,
+  canonical = '/',
+} = Astro.props;
+
+const pageTitle = title === seo.title ? title : `${title} | ${siteConfig.name}`;
+const canonicalUrl = new URL(canonical, siteConfig.url).href;
+---
+
+<!doctype html>
+<html lang="en-AU" class="h-full antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={seo.keywords.join(', ')} />
+    <meta name="application-name" content={siteConfig.name} />
+    <meta name="creator" content={siteConfig.director} />
+    <meta name="publisher" content={siteConfig.name} />
+    <meta name="robots" content="index, follow" />
+    <meta name="geo.region" content="AU-SA" />
+    <meta name="geo.placename" content="Adelaide" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-icon.png" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={siteConfig.locale.replace('_', '-')} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteConfig.url}${seo.ogImage}`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteConfig.url}${seo.ogImage}`} />
+    <title>{pageTitle}</title>
+    <JsonLd />
+  </head>
+  <body class="min-h-full">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cream focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-forest focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-forest"
+    >
+      Skip to main content
+    </a>
+    <slot />
+  </body>
+</html>

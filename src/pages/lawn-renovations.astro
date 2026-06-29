@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageShell from '../layouts/PageShell.astro';
+import LawnRenovationsSection from '../components/LawnRenovationsSection.astro';
+---
+
+<BaseLayout
+  title="Lawn renovations"
+  description="Structured lawn renovation programs for Adelaide — scarifying, coring, top dressing, fertilising and recovery planning so turf improves from the ground up."
+  canonical="/lawn-renovations"
+>
+  <PageShell>
+    <main id="main-content" class="bg-cream pb-0 pt-28 md:pt-36 lg:pt-40">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <nav class="text-sm text-stone">
+          <a href="/" class="font-medium text-forest underline-offset-4 hover:underline">Home</a>
+          <span class="mx-2 text-stone/60" aria-hidden="true">/</span>
+          <span class="text-charcoal">Lawn renovations</span>
+        </nav>
+      </div>
+      <LawnRenovationsSection />
+    </main>
+  </PageShell>
+</BaseLayout>
