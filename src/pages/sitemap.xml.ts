@@ -11,6 +11,8 @@ export const GET: APIRoute = () => {
     { loc: `${base}/lawn-renovations`, priority: '0.75', changefreq: 'monthly' },
     { loc: `${base}/areas-we-serve`, priority: '0.65', changefreq: 'monthly' },
     { loc: `${base}/about`, priority: '0.7', changefreq: 'monthly' },
+    { loc: `${base}/testimonials`, priority: '0.65', changefreq: 'monthly' },
+    { loc: `${base}/why-green-theory`, priority: '0.7', changefreq: 'monthly' },
   ];
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>

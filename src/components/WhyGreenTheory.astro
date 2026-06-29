@@ -1,6 +1,12 @@
 ---
 import { siteConfig } from '../lib/site';
 
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+
 const trustPoints = [
   'Residential, commercial & strata',
   'Licensed & fully insured',
@@ -11,7 +17,10 @@ const trustPoints = [
 
 <section
   id="why-green-theory"
-  class="scroll-mt-36 overflow-hidden bg-cream py-24 md:scroll-mt-40 lg:py-32"
+  class:list={[
+    'scroll-mt-36 overflow-hidden bg-cream py-24 md:scroll-mt-40 lg:py-32',
+    className,
+  ]}
   aria-labelledby="why-green-theory-heading"
 >
   <div class="mx-auto max-w-7xl px-6 lg:px-8">

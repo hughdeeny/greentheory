@@ -99,10 +99,15 @@ export const seo = {
   ogImage: '/logo.png',
 } as const;
 
+export const aboutSubLinks = [
+  { href: '/testimonials', label: 'Testimonials' },
+  { href: '/why-green-theory', label: 'Why Green Theory' },
+] as const;
+
 export const navLinks = [
   { href: '/#services', label: 'All Services' },
   { href: '/lawn-renovations', label: 'Lawn renovations' },
-  { href: '/about', label: 'About Us' },
+  { href: '/about', label: 'About Us', children: aboutSubLinks },
   { href: '/gallery', label: 'Gallery' },
   { href: '/#contact', label: 'Contact' },
 ] as const;
